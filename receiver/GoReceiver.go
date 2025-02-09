@@ -23,12 +23,6 @@ func handleRequest(conn *net.UDPConn, remoteAddr *net.UDPAddr, buffer []byte, wg
 	mu.Lock()
 	messageCount++
 	mu.Unlock()
-
-	// 예시: 클라이언트로 응답 전송
-	_, err := conn.WriteToUDP([]byte("Acknowledged"), remoteAddr)
-	if err != nil {
-		log.Printf("Error sending acknowledgment to %s: %v\n", remoteAddr, err)
-	}
 }
 
 func main() {
